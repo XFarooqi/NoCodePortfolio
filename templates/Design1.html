@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="{{url_for('static', filename = 'assets/Design1/style.css')}}" >
+    <link rel="stylesheet" href="{{url_for('static', filename = 'assets/Design1/all.css')}}" type="text/css">
+  </head>
+  <body>
+    <main>
+      <div class="big-wrapper light" id="home">
+        <!-- <img src="./img/shape.png" alt="" class="shape" /> -->
+
+        <header>
+          <div class="container">
+            <div class="logo">
+              <a href=""> <img src="{{url_for('static', filename = 'assets/Design1/img/weblogo.png')}}" alt="Logo"/></a>
+            
+            </div>
+
+            <div class="links">
+              <ul>
+                <li><a href="">About Me</a></li>
+                <li><a href="{{url_for('static', filename = 'assets/Design1/CheatSheet/cheatsheet.html')}}" target="_blank">Cheatsheet</a></li>
+                <li><a href="#nl">News Letter</a></li>
+                <li><a href="https://challange1.s3.us-west-2.amazonaws.com/assessment3/feedback.html">Contact AWS</a></li>
+                <li><a href="{{url_for('static', filename = 'assets/Design1/contact.html')}}" class="btn">Contact Me</a></li>
+              </ul>
+            </div>
+
+            <div class="overlay"></div>
+
+            <div class="hamburger-menu">
+              <div class="bar"></div>
+            </div>
+          </div>
+        </header>
+
+        <div class="showcase-area">
+          <div class="container">
+            <div class="left">
+              <div class="big-title">
+                <h1>Hola I'm</h1>
+                <span><h1>{{t_fname}} {{t_lname}}</h1></span>
+              </div>
+              <p class="text">
+                {{about}}
+              </p>
+              <div class="cta">
+                <a href="{{url_for('static', filename = 'assets/Design1/timeline.html')}}" class="btn">Learn More</a>
+              </div>
+            </div>
+            <div class="right">
+              <img src="static/images/{{img}}" alt="Person Image" class="person" />
+            </div>
+          </div>
+        </div>
+        <div class="social">
+          <ul class="sci">
+            <li><a href="https://github.com/xfarooqi" target="_blank"><img src="{{url_for('static', filename = 'assets/Design1/img/github.png')}}" alt="No Image"></a></li>
+            <li><a href="https://twitter.com/x_farooqi" target="_blank"><img src="{{url_for('static', filename = 'assets/Design1/img/twitter.png')}}" alt="No Image"></a></li>
+            <li><a href="https://www.linkedin.com/in/xfarooqi/" target="_blank"><img src="{{url_for('static', filename = 'assets/Design1/img/linkedin.png')}}" alt="No Image"></a></li>
+          </ul>
+        </div>
+
+        <div class="bottom-area">
+          <div class="container">
+            <button class="toggle-btn">
+              <i class="far fa-moon"></i>
+              <i class="far fa-sun"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+    
+    <!-- Newsletter -->
+
+    <div class="news" id="nl">
+      <form action="newsletter.php" method="post">
+        <h1>Join The Monthly NewsLetter</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem repellendus, dolor ab quam impedit cumque molestiae officiis provident facere excepturi nobis quae rerum! Maiores dolor nemo ex laboriosam debitis excepturi.</p>
+       
+        <div class="email-box">
+          <i class="fas fa-envelope"></i>
+          <input class="tbox" type="Email" name="email" id="email" placeholder="Enter You Email">
+          <button class="tbtn">Subscribe</button>
+         </div>
+      </form>
+    </div>
+
+    <!-- JavaScript Files -->
+
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <script src="{{url_for('static', filename = 'assets/Design1/app.js')}}"></script>
+  </body>
+</html>
