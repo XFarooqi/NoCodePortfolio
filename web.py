@@ -30,17 +30,18 @@ This is the database connection and the table creation.
 """
 
 
-"""
+
+
+
+@app.route('/')
+def hello_world():
+    """
 This fumctioon simply redirect us to the Index.html file when the user first opens the website.
 
 Here, @app.route("/") is a Python decorator that Flask provides to assign URLs in our app to functions easily.
 
 And render_template is used to generate output from a template file based on the Jinja2 engine that is found in the application's templates folder. 
 """
-
-
-@app.route('/')
-def hello_world():
     return render_template('index.html')
 
 
@@ -62,12 +63,13 @@ In POST method we can send large amount of data and request parameter is appende
 """
     return render_template("form.html")
 
-# This is the function that will be called when the user submits the form.
+
 
 
 @app.route("/upload", methods=["GET", "POST"])
 def upload():
     """
+    This is the function that will be called when the user submits the form.
     Here we are setting the condition for the if statement.
     Like what will happen if user click on Design1 or Design2 or Design3.
 
@@ -101,6 +103,7 @@ def upload():
         about = request.form.get("about")
         img = request.form.get("img")
 
+
         """
         All the values are stored in the session variable and sent to the Database.
 
@@ -131,8 +134,7 @@ def upload():
         key = uuid.uuid1()  # Creating A Unique Id
         img = request.files["dp"]  # Getting the Image
         img.save(f"static/images/{img.filename}")  # Saving the Image
-        # Renaming the Image with the Unique Id
-        img_new_name = f"{key}{img.filename}"
+        img_new_name = f"{key}{img.filename}" # Renaming the Image with the Unique Id
         os.rename(f"static/images/{img.filename}",  # Taking Orignal Image and Chaning its Name with the Unique Id
                   f"static/images/{img_new_name}")
     return render_template(display_name, t_fname=firstname, t_lname=lastname, school=school, college=college, phone=phone, email=email, skill1=skill1, skill2=skill2, skill3=skill3, skill4=skill4, about=about, img=img_new_name)
