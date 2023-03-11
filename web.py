@@ -15,7 +15,20 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@localhost/NoCodeP
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
-
+class UserData(db.Model):
+    sno = db.Column(db.Integer, primary_key = True)
+    firstname = db.Column(db.String(80),nullable = False)
+    lastname = db.Column(db.String(80),nullable = False)
+    school = db.Column(db.String(80),nullable = False)
+    college = db.Column(db.String(80),nullable = False)
+    phone = db.Column(db.String(80),nullable = False)
+    email = db.Column(db.String(80),nullable = False)
+    about = db.Column(db.String(80),nullable = False)
+    skill1 = db.Column(db.String(80),nullable = False)
+    skill2 = db.Column(db.String(80),nullable = False)
+    skill3 = db.Column(db.String(80),nullable = False)
+    skill4 = db.Column(db.String(80),nullable = False)
+    date = db.Column(db.String(80),nullable = True)
 
 
 
